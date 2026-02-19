@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slow-proxy"
+version = "0.1.0"
+description = "Network delay testing reverse proxy"
+requires-python = ">=3.10"
+dependencies = ["aiohttp>=3.9"]
+
+[project.scripts]
+slow-proxy = "slow_proxy.cli:main"
