@@ -30,4 +30,7 @@ def main():
     target = args.target.rstrip("/")
     logging.getLogger("slow_proxy").info("forwarding to %s with %dms delay on :%d", target, args.delay, args.port)
 
-    asyncio.run(run_server(target=target, port=args.port, delay_ms=args.delay, bind=args.bind))
+    try:
+        asyncio.run(run_server(target=target, port=args.port, delay_ms=args.delay, bind=args.bind))
+    except KeyboardInterrupt:
+        pass

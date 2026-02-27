@@ -52,5 +52,8 @@ async def run_server(target: str, port: int, delay_ms: int, bind: str):
 
     try:
         await asyncio.Event().wait()
+    except asyncio.CancelledError:
+        pass
     finally:
+        print("\nShutting down...")
         await runner.cleanup()
